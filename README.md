@@ -30,9 +30,9 @@ scons
 
 ## MIDI Controller & Screens
 
-[![preview](https://github.com/brokengdnb/emi/blob/master/02.png?raw=true "preview")](https://github.com/brokengdnb/emi "preview")
-
 [![preview1](https://github.com/brokengdnb/emi/blob/master/01.png?raw=true "preview1")](https://github.com/brokengdnb/emi "preview1")
+
+[![preview](https://github.com/brokengdnb/emi/blob/master/02.jpg?raw=true "preview")](https://github.com/brokengdnb/emi "preview")
 
 [![preview2](https://github.com/brokengdnb/emi/blob/master/03.png?raw=true "preview2")](https://github.com/brokengdnb/emi "preview2")
 
