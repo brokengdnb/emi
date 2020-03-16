@@ -30,13 +30,22 @@ scons
 
 ## MIDI Controller & Screens
 
-[![preview1](https://github.com/brokengdnb/emi/blob/master/01.png?raw=true "preview1")](https://github.com/brokengdnb/emi "preview1")
+[![preview1](https://github.com/brokengdnb/emi/blob/master/01.png?raw=true "preview1")](https://github.com/brokengdnb/emi/blob/master/01.png?raw=true "preview1")
 
-[![preview](https://github.com/brokengdnb/emi/blob/master/02.jpg?raw=true "preview")](https://github.com/brokengdnb/emi "preview")
+[![preview](https://github.com/brokengdnb/emi/blob/master/02.jpg?raw=true "preview")](https://github.com/brokengdnb/emi/blob/master/02.jpg?raw=true "preview")
 
-[![preview2](https://github.com/brokengdnb/emi/blob/master/03.png?raw=true "preview2")](https://github.com/brokengdnb/emi "preview2")
+[![preview2](https://github.com/brokengdnb/emi/blob/master/03.png?raw=true "preview2")](https://github.com/brokengdnb/emi/blob/master/03.png?raw=true "preview2")
 
-[![preview3](https://github.com/brokengdnb/emi/blob/master/05.png?raw=true "preview3")](https://github.com/brokengdnb/emi "preview3")
+[![preview3](https://github.com/brokengdnb/emi/blob/master/05.png?raw=true "preview3")](https://github.com/brokengdnb/emi/blob/master/05.png?raw=true "preview3")
+
+## Future plans
+
+Get some single-board mini PC with LCD and create complete custom and standalone player powered by 5V power bank.
+
+[![board](https://github.com/brokengdnb/emi/blob/master/board.jpg?raw=true "board")](https://github.com/brokengdnb/emi/blob/master/board.jpg?raw=true "board")
+
+[![lcd](https://github.com/brokengdnb/emi/blob/master/lcd.jpg?raw=true "lcd")](https://github.com/brokengdnb/emi/blob/master/lcd.jpg?raw=true "lcd")
+
 
 ## License
 
