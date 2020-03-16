@@ -1,0 +1,1386 @@
+<!DOCTYPE template>
+
+<Template>
+
+<WidgetGroup>
+		<Tooltip>Deck <Variable name="audiochannel"/></Tooltip><!-- Tooltip -->
+		<ObjectName>Deck<Variable name="position"/></ObjectName>
+			<MinimumSize>280,206</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>vertical</Layout>
+			<Children>		
+		
+			<!--
+			********************************************************************
+			ROW: Text - Track Title + Music Time:
+			********************************************************************
+			-->
+			
+			<WidgetGroup>
+			<ObjectName>TextLineN1Deck<Variable name="position"/></ObjectName>
+			<BackPath>skin:graphics/background_digital.svg</BackPath> <!-- For color process -->
+			<Pos>0,0</Pos>
+			<MinimumSize>10,23</MinimumSize>
+			<!-- <SizePolicy>me,f</SizePolicy> -->
+			<SizePolicy>i,max</SizePolicy> <!-- To ignore childrens. Otherwise decks widths are not respected, based on the size of the labels in this row -->
+			<Layout>horizontal</Layout>
+			<Children>			
+			
+					
+				
+
+	
+					<TrackProperty>
+					<ObjectName>TrackTitleDeck<Variable name="position"/></ObjectName>
+					<Pos>0,0</Pos>
+					<MinimumSize>10,23</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Alignment>right</Alignment>
+					<Elide>right</Elide> <!-- Adds "..." -->
+					<Property>title</Property>
+					<Channel><Variable name="audiochannel"/></Channel>
+					</TrackProperty>
+
+
+
+
+
+			</Children>
+			</WidgetGroup>
+
+			<!--
+			********************************************************************
+			ROW: Text - Track Artist + Beat Buttons:
+			********************************************************************
+			-->
+			
+			<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+			<ObjectName>HorizontalLine</ObjectName>
+			<MinimumSize>0,1</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>horizontal</Layout>				
+			<Children></Children>
+			</WidgetGroup>
+
+			<WidgetGroup>
+				<ObjectName>TextLineN2Deck<Variable name="position"/></ObjectName>
+				<!-- For color process -->
+				<Pos>0,26</Pos>
+				<MinimumSize>10,23</MinimumSize>
+				<!-- <SizePolicy>me,f</SizePolicy> -->
+				<SizePolicy>i,max</SizePolicy> <!-- To ignore childrens. Otherwise decks widths are not respected, based on the size of the labels in this row -->
+				<Layout>horizontal</Layout>
+				<Children>
+				
+				<NumberPos>
+					<ObjectName>TrackPlayPositionDeck<Variable name="position"/></ObjectName>
+					<Channel><Variable name="audiochannel"/></Channel>
+					<Pos>0,0</Pos>
+					<MinimumSize>10,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Alignment>left</Alignment>
+					<NumberOfDigits>0</NumberOfDigits>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],playposition</ConfigKey>
+					</Connection>
+					</NumberPos>					
+					
+					<!--
+					**********************************************
+					Button - Expand All Beat Buttons:
+					**********************************************
+					-->				
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<PushButton>
+					<Tooltip>Beat Buttons</Tooltip><!-- Tooltip -->
+					<MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_beat_expand.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_expand.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_beat_expand_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_expand_pressed.svg</Unpressed>
+					</State>
+					<Connection>
+					<ConfigKey>[BeatButtonsDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>
+					
+
+
+
+
+
+
+
+
+		<NumberBpm>
+					<ObjectName>SmallBPM</ObjectName>
+					<MinimumSize>50,22</MinimumSize>
+					<MaximumSize>50,22</MaximumSize><!-- WARNING: if long text, it pushes the "mixer" layout to the right -->
+					<SizePolicy>f,f</SizePolicy>
+					<Alignment>left</Alignment>
+					<NumberOfDigits>1</NumberOfDigits>
+					<Channel><Variable name="audiochannel"/></Channel>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],visual_bpm</ConfigKey>
+					</Connection>
+					</NumberBpm>
+
+
+
+
+
+
+					<!--
+					**********************************************
+					Button - Expand All Key Buttons:
+					**********************************************
+					-->	
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<PushButton>
+					<Tooltip>Key Buttons</Tooltip><!-- Tooltip -->
+					<MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_key_expand.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_expand.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_key_expand_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_expand_pressed.svg</Unpressed>
+					</State>
+					<Connection>
+					<ConfigKey>[KeyButtonsDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<WidgetGroup>
+					<MinimumSize>-1,-1</MinimumSize><!-- -1f == Hides this row -->
+					<SizePolicy>f,f</SizePolicy>
+					<Layout>horizontal</Layout>	
+					<Children>
+					
+					<PushButton>
+                    <TooltipId>beats_adjust_slower</TooltipId>
+                    <MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberOfDigits>3</NumberOfDigits>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                    <Number>0</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_down_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_down.svg</Unpressed>
+                    </State>
+                    <State>
+                    <Number>1</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_down_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_down.svg</Unpressed>
+                    </State>                                      
+                    <Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],beats_adjust_slower</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+                    </PushButton>
+				
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<PushButton>
+                    <TooltipId>bpm_tap_visual_bpm</TooltipId>
+                    <MinimumSize>60,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberOfDigits>3</NumberOfDigits>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                    <Number>0</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_tap1_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_tap1.svg</Unpressed>
+                    </State>
+                    <State>
+                    <Number>1</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_tap1_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_tap1.svg</Unpressed>
+                    </State>                                      
+                    <Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],bpm_tap</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+                    </PushButton>
+
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<PushButton>
+                    <TooltipId>beats_adjust_faster</TooltipId>
+                    <MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberOfDigits>3</NumberOfDigits>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                    <Number>0</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_up_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_up.svg</Unpressed>
+                    </State>
+                    <State>
+                    <Number>1</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_up_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_up.svg</Unpressed>
+                    </State>                                      
+                    <Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],beats_adjust_faster</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+                    </PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>			
+
+					<PushButton>
+                    <TooltipId>beats_translate_earlier</TooltipId>
+                    <MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberOfDigits>3</NumberOfDigits>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                    <Number>0</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_slower_backward_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_slower_backward.svg</Unpressed>
+                    </State>
+                    <State>
+                    <Number>1</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_slower_backward_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_slower_backward.svg</Unpressed>
+                    </State>                                      
+                    <Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],beats_translate_earlier</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+                    </PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<PushButton>
+                    <TooltipId>beats_translate_curpos</TooltipId>
+                    <MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberOfDigits>3</NumberOfDigits>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                    <Number>0</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust.svg</Unpressed>
+                    </State>
+                    <State>
+                    <Number>1</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust.svg</Unpressed>
+                    </State>                                      
+                    <Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],beats_translate_curpos</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+					<Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],beats_translate_match_alignment</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+                    </PushButton>
+
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<PushButton>
+                    <TooltipId>beats_translate_later</TooltipId>
+                    <MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberOfDigits>3</NumberOfDigits>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                    <Number>0</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_slower_forward_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_slower_forward.svg</Unpressed>
+                    </State>
+                    <State>
+                    <Number>1</Number>
+                    <Text></Text>
+					<Pressed>skin:graphics/btn_beat_adjust_slower_forward_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_beat_adjust_slower_forward.svg</Unpressed>
+                    </State>                                      
+                    <Connection>
+                    <ConfigKey>[Channel<Variable name="audiochannel" />],beats_translate_later</ConfigKey>
+                    <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                    </Connection>
+                    </PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					</Children>	
+					<!-- Show/Hide Beat Buttons: -->
+					<Connection>
+					<ConfigKey>[BeatButtonsDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<BindProperty>visible</BindProperty>
+					</Connection>					
+					</WidgetGroup>
+					
+					
+					
+					
+					
+					
+					
+					
+					<WidgetGroup>
+					<MinimumSize>-1,-1</MinimumSize><!-- -1f == Hides this row -->
+					<SizePolicy>f,f</SizePolicy>
+					<Layout>horizontal</Layout>	
+					<Children>					
+					
+					<PushButton>
+					<TooltipId>pitch_down</TooltipId><!-- Tooltip -->
+					<MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_key_adjust_down_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_adjust_down.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_key_adjust_down_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_adjust_down_pressed.svg</Unpressed>
+					</State>							
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],pitch_down</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],pitch_down_small</ConfigKey>
+					<ButtonState>RightButton</ButtonState>
+					</Connection>
+					</PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>					
+
+					<PushButton>
+					<TooltipId>sync_reset_key</TooltipId><!-- Tooltip -->
+					<MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_key_match_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_match.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_key_match_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_match_pressed.svg</Unpressed>
+					</State>							
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],sync_key</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],reset_key</ConfigKey>
+					<ButtonState>RightButton</ButtonState>
+					</Connection>
+					</PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+
+					<PushButton>
+					<TooltipId>pitch_up</TooltipId><!-- Tooltip -->
+					<MinimumSize>30,23</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_key_adjust_up_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_adjust_up.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_key_adjust_up_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_key_adjust_up_pressed.svg</Unpressed>
+					</State>							
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],pitch_up</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],pitch_up_small</ConfigKey>
+					<ButtonState>RightButton</ButtonState>
+					</Connection>
+					</PushButton>
+
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,23</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>									
+					
+					</Children>	
+					<!-- Show/Hide Key Buttons: -->
+					<Connection>
+					<ConfigKey>[KeyButtonsDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<BindProperty>visible</BindProperty>
+					</Connection>					
+					</WidgetGroup>			
+					
+					
+					
+					
+					<TrackProperty>
+					<ObjectName>TrackArtistDeck<Variable name="position"/></ObjectName>
+					<Pos>0,0</Pos>
+					<MinimumSize>10,23</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Alignment>right</Alignment>
+					<Elide>right</Elide> <!-- Adds "..." -->
+					<Property>artist</Property>
+					<Channel><Variable name="audiochannel"/></Channel>
+					</TrackProperty>					
+
+				</Children>
+			</WidgetGroup>
+
+			<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+			<ObjectName>HorizontalLine</ObjectName>
+			<MinimumSize>0,1</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>horizontal</Layout>				
+			<Children></Children>
+			</WidgetGroup>			
+			
+			<!--
+			********************************************************************
+			ROW: Art + Waves + Spinning:
+			********************************************************************
+			-->
+		
+			<WidgetGroup>
+				<Pos>0,50</Pos>
+				<MinimumSize>10,118</MinimumSize>
+				<SizePolicy>me,f</SizePolicy>
+				<Layout>horizontal</Layout>
+				<Children>
+				
+				
+					<!--
+					********************************************************************
+					Spinnyng disc display:
+					********************************************************************
+					-->	
+					
+					<WidgetGroup>
+						<Pos>0,0</Pos>
+						<MinimumSize>118,118</MinimumSize>
+						<MaximumSize>118,118</MaximumSize> <!-- Applies the "Rigid Body" to this element -->	
+						<SizePolicy>f,f</SizePolicy>
+						<Layout>horizontal</Layout>
+						<Children>							
+							<Spinny>								
+							<Channel><Variable name="audiochannel"/></Channel>								
+							<PathBackground>skin:graphics/background_spinny.svg</PathBackground>
+							<PathForeground>skin:graphics/spinny_<Variable name="spinnytype"/>.svg</PathForeground>
+							<PathGhost>skin:graphics/spinny_<Variable name="spinnytype"/>.svg</PathGhost>
+							<PathMask></PathMask>
+							<ShowCover>false</ShowCover>
+							</Spinny>
+						</Children>
+						<Connection>
+							<ConfigKey>[Spinny<Variable name="audiochannel"/>],show_spinny</ConfigKey>
+							<BindProperty>visible</BindProperty>
+						</Connection>
+					</WidgetGroup>
+					
+					
+					
+					<WidgetGroup>
+					<ObjectName>BothWaves</ObjectName>
+					<MinimumSize>-1,116</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Layout>vertical</Layout>				
+					<Children>
+					
+					<WidgetGroup> <!-- Display: The track kHz -->
+					<ObjectName>TrackRate<Variable name="position"/></ObjectName>
+					<BackPath>skin:graphics/background_digital_small.svg</BackPath> <!-- For color process -->
+					<MinimumSize>-1,20</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Layout>horizontal</Layout>	
+					<Children>
+						<Number>
+						<ObjectName>TrackRateDeck<Variable name="position"/></ObjectName>
+						<MinimumSize>-1,20</MinimumSize>
+						<SizePolicy>me,f</SizePolicy>						
+						<DisplayUnit>Hz</DisplayUnit>
+						<NumberOfDigits>0</NumberOfDigits>
+						<Text>%1 Hz</Text>
+						<Alignment>left</Alignment>
+						<Elide>right</Elide> <!-- Adds "..." if needed... -->
+						<Connection>
+						<ConfigKey>[Channel<Variable name="audiochannel"/>],track_samplerate</ConfigKey>
+						</Connection>
+						</Number>
+						<WidgetGroup><!-- Pusher -->								
+						<MinimumSize>-1,20</MinimumSize>
+						<SizePolicy>me,f</SizePolicy>
+						<Children></Children>
+						</WidgetGroup>
+						<StarRating><!-- Star Rating -->	
+						<ObjectName>TrackStarRating</ObjectName>
+						<MinimumSize>80,20</MinimumSize>
+						<SizePolicy>f,f</SizePolicy>
+						<Channel><Variable name="audiochannel"/></Channel>
+						</StarRating>
+						</Children>			
+					</WidgetGroup>
+					
+					<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+					<ObjectName>HorizontalLine</ObjectName>
+					<MinimumSize>1,1</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>	
+					
+					<!--
+					********************************************************************
+					(2 Waves) 1st - Big wave display:
+					********************************************************************
+					-->	
+					
+					<Visual>						
+					<Channel><Variable name="audiochannel"/></Channel>
+					<MinimumSize>1,66</MinimumSize>	
+					<SizePolicy>me,me</SizePolicy>
+					<BgColor></BgColor>
+					<BgPixmap>skin:graphics/wave_background_big.svg</BgPixmap>			
+					<SignalHighColor>#5f4d75</SignalHighColor><!-- highs - clear -->
+					<SignalMidColor>#230d44</SignalMidColor>  <!-- mediums - dark -->
+					<SignalLowColor>#180831</SignalLowColor>  <!-- lows - darker -->
+					<SignalColor>#7c708f</SignalColor>        <!-- "main wave" -->
+					<PlayPosColor>#99ece7f5</PlayPosColor>    <!-- color format: #AARRGGBB -->
+					<PlayedOverlayColor>#99684e8c</PlayedOverlayColor> <!-- played wave - color format: #AARRGGBB -->
+					<BeatColor>#d8cbec</BeatColor>
+					<EndOfTrackColor>#6e4aaa</EndOfTrackColor>					
+					<AxesColor>#99580078</AxesColor> <!-- color format: #AARRGGBB -->
+					<DefaultMark> <!-- Applies to numbers 1 to 8 -->
+					<Align>top</Align>
+					<Color>#dbb7ff</Color>
+					<TextColor>#ffffff</TextColor>
+					<Text> %1 </Text>
+					</DefaultMark>
+					<MarkRange> <!-- ... -->
+					<StartControl>loop_start_position</StartControl>
+					<EndControl>loop_end_position</EndControl>
+					<EnabledControl>loop_enabled</EnabledControl>
+					<Color>#dbb7ff</Color>
+					<DisabledColor>#ffffff</DisabledColor>
+					</MarkRange>
+					<Mark>
+						<Control>loop_start_position</Control>
+						<Pixmap></Pixmap>
+						<Text> START </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>
+					<Mark>
+						<Control>loop_end_position</Control>
+						<Pixmap></Pixmap>
+						<Text> END </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>	
+					<Mark> <!-- Cue -->
+						<Control>cue_point</Control>
+						<Pixmap></Pixmap>
+						<Text> CUE </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>	
+					</Visual>
+
+					<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+					<ObjectName>HorizontalLine</ObjectName>
+					<MinimumSize>0,1</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>					
+					
+					<!--
+					**********************************************
+					(2 Waves) 2nd - Medium Wave display:
+					**********************************************
+					-->
+					
+					<Overview>	
+					<MinimumSize>1,29</MinimumSize>	
+					<SizePolicy>me,f</SizePolicy>					
+					<Channel><Variable name="audiochannel"/></Channel>
+					<BgColor></BgColor>	
+					<BgPixmap>skin:graphics/wave_background_medium.svg</BgPixmap> <!-- bg image must be set here, not in "style.qss" -->
+					<SignalHighColor>#5f4d75</SignalHighColor><!-- highs - clear -->
+					<SignalMidColor>#230d44</SignalMidColor>  <!-- mediums - dark -->
+					<SignalLowColor>#180831</SignalLowColor>  <!-- lows - darker -->
+					<SignalColor>#7c708f</SignalColor>        <!-- "main wave" -->
+					<PlayPosColor>#99ece7f5</PlayPosColor>    <!-- color format: #AARRGGBB -->
+					<PlayedOverlayColor>#99684e8c</PlayedOverlayColor> <!-- played wave - color format: #AARRGGBB -->
+					<BeatColor>#d8cbec</BeatColor>
+					<EndOfTrackColor>#6e4aaa</EndOfTrackColor>					
+					<AxesColor>#99580078</AxesColor> <!-- color format: #AARRGGBB -->
+					<DefaultMark> <!-- Applies to numbers 1 to 8 -->
+					<Align>top</Align>
+					<Color>#dbb7ff</Color>
+					<TextColor>#ffffff</TextColor>
+					<Text> %1 </Text>
+					</DefaultMark>
+					<MarkRange> <!-- ... -->
+					<StartControl>loop_start_position</StartControl>
+					<EndControl>loop_end_position</EndControl>
+					<EnabledControl>loop_enabled</EnabledControl>
+					<Color>#dbb7ff</Color>
+					<DisabledColor>#FFFFFF</DisabledColor>
+					</MarkRange>
+					<Mark>
+						<Control>loop_start_position</Control>
+						<Pixmap></Pixmap>
+						<Text> START </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>
+					<Mark>
+						<Control>loop_end_position</Control>
+						<Pixmap></Pixmap>
+						<Text> END </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>	
+					<Mark> <!-- Cue -->
+						<Control>cue_point</Control>
+						<Pixmap></Pixmap>
+						<Text> CUE </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>						
+					<Connection>
+						<ConfigKey>[Channel<Variable name="audiochannel"/>],playposition</ConfigKey>
+						<EmitOnDownPress>false</EmitOnDownPress>
+					</Connection>
+					</Overview>	
+					
+					</Children>
+					</WidgetGroup>
+
+				
+					<!--
+					**********************************************
+					Display BIG cover art:
+					**********************************************
+					-->					
+					
+					<WidgetGroup>
+						<ObjectName>CoverArtBig<Variable name="position"/></ObjectName>
+						<MinimumSize>118,118</MinimumSize>
+						<SizePolicy>f,f</SizePolicy>
+						<Layout>horizontal</Layout>
+						<Children>					
+						<CoverArt>	
+						<MinimumSize>83,83</MinimumSize>	
+						<SizePolicy>f,f</SizePolicy>					
+						<Group>[Channel<Variable name="audiochannel"/>]</Group>
+						<!-- <PathMask>skin:graphics/cover_mask.svg</PathMask> -->
+						</CoverArt>						
+						</Children>
+						<Connection>
+						<ConfigKey>[CoverArtBigDeck<Variable name="audiochannel"/>],show</ConfigKey>
+						<BindProperty>visible</BindProperty>
+						</Connection>
+					</WidgetGroup>				
+					
+				</Children>
+			</WidgetGroup>			
+			
+			<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+			<ObjectName>HorizontalLine</ObjectName>
+			<MinimumSize>0,1</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>horizontal</Layout>				
+			<Children></Children>
+			</WidgetGroup>
+
+			<!--
+			**********************************************
+			ROW: Vinyl - All Control Modes
+			**********************************************
+			-->
+			
+			<WidgetGroup>
+			<ObjectName>VinylControlsDeck<Variable name="position"/></ObjectName>
+			<MinimumSize>10,20</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>horizontal</Layout>
+			<Children>
+			
+			<!--
+			**********************************************
+			Vinyl - On/Off:
+			**********************************************
+			-->
+				
+			<WidgetGroup>		
+			<MinimumSize>26,16</MinimumSize>
+			<SizePolicy>f,f</SizePolicy>
+			<Children>
+
+				<PushButton>				
+				<NumberStates>2</NumberStates>
+				<State>
+				<Number>0</Number>
+				<Pressed>skin:graphics/btn_on.svg</Pressed>
+				<Unpressed>skin:graphics/btn_off.svg</Unpressed>
+				</State>
+				<State>
+				<Number>1</Number>
+				<Pressed>skin:graphics/btn_on.svg</Pressed>
+				<Unpressed>skin:graphics/btn_on.svg</Unpressed>
+				</State>
+				<Connection>
+				<ConfigKey>[Channel<Variable name="audiochannel"/>],vinylcontrol_enabled</ConfigKey>
+				</Connection>
+				</PushButton>
+				
+			</Children>
+			</WidgetGroup>
+			
+			<!--
+			**********************************************
+			Vinyl - Control Mode:
+			**********************************************
+			-->			
+
+			<WidgetGroup>
+			<MinimumSize>120,16</MinimumSize>
+			<SizePolicy>f,f</SizePolicy>
+			<Children>	
+
+				<PushButton>				
+				<NumberStates>3</NumberStates>
+				<State>
+				<Number>0</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_mode_abs.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_mode_abs.svg</Unpressed>
+				</State>
+				<State>
+				<Number>1</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_mode_rel.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_mode_rel.svg</Unpressed>
+				</State>
+				<State>
+				<Number>2</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_mode_const.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_mode_const.svg</Unpressed>
+				</State>				
+				<Connection>
+				<ConfigKey>[Channel<Variable name="audiochannel"/>],vinylcontrol_mode</ConfigKey>
+				</Connection>
+				</PushButton>
+				
+				<PushButton>
+				<NumberStates>3</NumberStates>
+				<State>
+				<Number>0</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_mode_abs.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_mode_abs.svg</Unpressed>
+				</State>
+				<State>
+				<Number>1</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_mode_rel.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_mode_rel.svg</Unpressed>
+				</State>
+				<State>
+				<Number>2</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_mode_const.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_mode_const.svg</Unpressed>
+				</State>
+				<Connection>
+				<ConfigKey>[Channel<Variable name="audiochannel"/>],vinylcontrol_mode</ConfigKey>
+				</Connection>
+				</PushButton>							
+
+			</Children>
+			</WidgetGroup>
+			
+			<!-- Texts + Pusher: Pushes everything in this row to both sides, left and right -->
+			<WidgetGroup>
+			<ObjectName>Texts</ObjectName>	
+			<MinimumSize>1,16</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>vertical</Layout>
+			<Children>
+			<Label>
+			<Style>font:10px/12px; background:transparent; color:#484848;</Style>
+			<Text>Vinyl Controls</Text>
+			</Label>
+			</Children>			
+			</WidgetGroup>	
+			
+			<!--
+			**********************************************
+			Vinyl - Cueing Mode:
+			**********************************************
+			-->
+			
+			<WidgetGroup>
+			<MinimumSize>120,16</MinimumSize>
+			<SizePolicy>f,f</SizePolicy>
+			<Children>
+			
+				<PushButton>								
+				<NumberStates>3</NumberStates>
+				<State>
+				<Number>0</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_cueing_off.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_cueing_off.svg</Unpressed>
+				</State>
+				<State>
+				<Number>1</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_cueing_one.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_cueing_one.svg</Unpressed>
+				</State>
+				<State>
+				<Number>2</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_cueing_hot.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_cueing_hot.svg</Unpressed>
+				</State>
+				<Connection>
+				<ConfigKey>[Channel<Variable name="audiochannel"/>],vinylcontrol_cueing</ConfigKey>
+				</Connection>
+				</PushButton>
+				
+				<PushButton>
+				<NumberStates>3</NumberStates>
+				<State>
+				<Number>0</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_cueing_off.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_cueing_off.svg</Unpressed>
+				</State>
+				<State>
+				<Number>1</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_cueing_one.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_cueing_one.svg</Unpressed>
+				</State>
+				<State>
+				<Number>2</Number>
+				<Pressed>skin:graphics/btn_vinylcontrol_cueing_hot.svg</Pressed>
+				<Unpressed>skin:graphics/btn_vinylcontrol_cueing_hot.svg</Unpressed>
+				</State>
+				<Connection>
+				<ConfigKey>[Channel<Variable name="audiochannel"/>],vinylcontrol_cueing</ConfigKey>
+				</Connection>
+				</PushButton>				
+				
+			</Children>
+			</WidgetGroup>			
+				
+			</Children>
+			<Connection><!-- Show/Hide all the above vinyl buttons -->			
+			<ConfigKey>[VinylControlsDeck<Variable name="audiochannel"/>],show</ConfigKey>            
+            <!-- <Transform><Not/></Transform> --> <!-- Important: INVERSE !!! -->
+			<BindProperty>visible</BindProperty>
+			</Connection>
+			</WidgetGroup>
+
+			<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+			<ObjectName>HorizontalLine</ObjectName>
+			<MinimumSize>0,1</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>horizontal</Layout>				
+			<Children></Children>
+			</WidgetGroup>				
+
+			<!--
+			********************************************************************
+			ROW: Small buttons:
+			********************************************************************
+			-->			
+			
+			<WidgetGroup>
+				<ObjectName>HorizontalSmallButtons<Variable name="position"/></ObjectName>
+				<Pos>0,170</Pos>
+				<MinimumSize>290,35</MinimumSize> <!-- Dont let the small buttons overlap between themselves -->
+				<SizePolicy>me,f</SizePolicy>
+				<Layout>horizontal</Layout>				
+				<Children>
+				
+				<WidgetGroup>
+				<ObjectName>HorizontalDeckButtonsBackgroung</ObjectName> <!-- Style: For background image only -->
+				<MinimumSize>-1,-1</MinimumSize>
+				<SizePolicy>f,f</SizePolicy>
+				<Layout>horizontal</Layout>				
+				<Children>
+				
+					<!--
+					**********************************************
+					Button - Show the tinny coverart:
+					**********************************************
+					-->
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,24</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+					<ObjectName>CoverArtTinny<Variable name="position"/></ObjectName>
+					<MinimumSize>24,24</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<Layout>horizontal</Layout>
+					<Children>			
+					<CoverArt>
+					<MinimumSize>24,24</MinimumSize>
+					<SizePolicy>f,f</SizePolicy>
+					<Group>[Channel<Variable name="audiochannel"/>]</Group>
+					<!-- <PathMask>skin:graphics/cover_mask.svg</PathMask> -->
+					</CoverArt>					
+					</Children>
+					</WidgetGroup>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,24</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+				
+					<!--
+					**********************************************
+					Button - Eject:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Eject</Tooltip><!-- Tooltip -->
+					<NumberStates>1</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_eject_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_eject.svg</Unpressed>
+					</State>						
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],eject</ConfigKey>
+					<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+					<ButtonState>LeftButton</ButtonState>
+					<ConnectValueToWidget>false</ConnectValueToWidget>
+					</Connection>
+					</PushButton>				
+				
+					<!--
+					**********************************************
+					Button - Loop music:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Loop</Tooltip><!-- Tooltip -->
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_repeat.svg</Pressed>
+					<Unpressed>skin:graphics/btn_repeat.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_repeat_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_repeat_pressed.svg</Unpressed>
+					</State>						
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],repeat</ConfigKey>
+					</Connection>
+					</PushButton>
+					
+					<!--
+					**********************************************
+					Button - Quantize:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Quantize</Tooltip><!-- Tooltip -->
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_quantize.svg</Pressed>
+					<Unpressed>skin:graphics/btn_quantize.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_quantize_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_quantize_pressed.svg</Unpressed>
+					</State>						
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],quantize</ConfigKey>
+					<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>
+				
+					<!--
+					**********************************************
+					Button - Key lock:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Key Lock</Tooltip><!-- Tooltip -->					
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_keylock.svg</Pressed>
+					<Unpressed>skin:graphics/btn_keylock.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_keylock_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_keylock_pressed.svg</Unpressed>
+					</State>						
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],keylock</ConfigKey>
+					</Connection>
+					</PushButton>
+					
+					<!--
+					**********************************************
+					Button - Slip Mode:
+					**********************************************
+					-->
+
+					<PushButton>
+					<Tooltip>Slip Mode</Tooltip><!-- Tooltip -->
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_slip.svg</Pressed>
+					<Unpressed>skin:graphics/btn_slip.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_slip_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_slip_pressed.svg</Unpressed>
+					</State>		
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],slip_enabled</ConfigKey>
+					<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>	
+					</PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,35</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>		
+
+					<!--
+					**********************************************
+					Button - Show/Hide vinyl controls:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Vinyl Controls</Tooltip><!-- Tooltip -->					
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_vinyl.svg</Pressed>
+					<Unpressed>skin:graphics/btn_vinyl.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_vinyl_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_vinyl_pressed.svg</Unpressed>
+					</State>					
+					<Connection>
+					<ConfigKey>[VinylControlsDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>					
+				
+					<!--
+					**********************************************
+					Button - Show/Hide spinning disc:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Spinning Disc</Tooltip><!-- Tooltip -->					
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_spinny.svg</Pressed>
+					<Unpressed>skin:graphics/btn_spinny.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_spinny_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_spinny_pressed.svg</Unpressed>
+					</State>					
+					<Connection>
+					<ConfigKey>[Spinny<Variable name="audiochannel"/>],show_spinny</ConfigKey>
+					<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>
+
+
+					<!--
+					**********************************************
+					Button - Show/Hide BIG coverart:
+					**********************************************
+					-->
+					
+					<PushButton>
+					<Tooltip>Cover Art</Tooltip><!-- Tooltip -->
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_coverart_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_coverart.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_coverart_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_coverart_pressed.svg</Unpressed>
+					</State>					
+					<Connection>
+					<ConfigKey>[CoverArtBigDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>				
+							
+					<!--
+					**********************************************
+					Button - Show/Hide rows with buttons:
+					**********************************************
+					-->					
+				
+					<PushButton>
+					<Tooltip>Buttons</Tooltip><!-- Tooltip -->						
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_buttons_row.svg</Pressed>
+					<Unpressed>skin:graphics/btn_buttons_row.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_buttons_row_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_buttons_row_pressed.svg</Unpressed>
+					</State>
+					<Connection>
+					<ConfigKey>[ButtonsRowDeck<Variable name="audiochannel"/>],show</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>							
+					</Connection>					
+					</PushButton>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,35</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+
+					</Children>
+					</WidgetGroup><!-- Style: For background image only -->								
+				
+					<WidgetGroup><!-- Pusher -->
+					<MinimumSize>0,0</MinimumSize>
+					<SizePolicy>me,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>
+					
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,35</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>	
+					
+					<!--
+					**********************************************
+					Button - Minimize / Expand the other Deck:
+					**********************************************
+					-->				
+					
+					<PushButton>
+					<Tooltip>Expand</Tooltip><!-- Tooltip -->
+					<NumberStates>2</NumberStates>
+					<State>
+					<Number>0</Number>
+					<Pressed>skin:graphics/btn_expand_deck_pressed.svg</Pressed>
+					<Unpressed>skin:graphics/btn_expand_deck_pressed.svg</Unpressed>
+					</State>
+					<State>
+					<Number>1</Number>
+					<Pressed>skin:graphics/btn_expand_deck.svg</Pressed>
+					<Unpressed>skin:graphics/btn_expand_deck.svg</Unpressed>
+					</State>
+					<Connection>
+					<ConfigKey>[Deck<Variable name="decktohide"/>],show</ConfigKey>
+					<ButtonState>LeftButton</ButtonState>
+					</Connection>
+					</PushButton>
+
+					<WidgetGroup><!-- Design only: For creating an vertical separator line -->
+					<ObjectName>VerticalLineDarker30</ObjectName>
+					<MinimumSize>1,35</MinimumSize>
+					<SizePolicy>f,me</SizePolicy>
+					<Layout>horizontal</Layout>				
+					<Children></Children>
+					</WidgetGroup>					
+
+			</Children>
+			</WidgetGroup>
+
+
+			<WidgetGroup><!-- Design only: For creating an horizontal long line -->
+			<ObjectName>HorizontalLine</ObjectName>
+			<MinimumSize>0,1</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>	
+			<Children></Children>
+			</WidgetGroup>			
+
+		<!--
+		*************************************************************************
+		*************************************************************************
+		STARTS - 2 ROWS with buttons: (But ONLY one will be visible at a time)
+		*************************************************************************
+		*************************************************************************
+		-->		
+	
+
+	<WidgetGroup> <!-- Pusher: Pushes everything in this deck to up -->				
+	<MinimumSize>0,0</MinimumSize>
+	<SizePolicy>f,me</SizePolicy>
+	<Children><!-- Pusher --></Children>
+	</WidgetGroup>				
+
+	</Children>
+	<Connection><!-- Show/Hide the other deck, so this one will be expanded -->
+	<ConfigKey>[Deck<Variable name="audiochannel"/>],show</ConfigKey>
+	<BindProperty>visible</BindProperty>
+	</Connection>
+	</WidgetGroup>
+	
+</Template>

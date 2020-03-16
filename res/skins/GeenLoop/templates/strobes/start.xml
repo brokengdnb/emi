@@ -1,0 +1,43 @@
+<!DOCTYPE template>
+
+<Template>
+
+	<WidgetGroup>
+	<ObjectName>StrobesRack</ObjectName>	
+	<MinimumSize>0,0</MinimumSize><!-- 0 == Forces to redraw the full row height, after we show/hide a module -->
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>vertical</Layout> 
+	<Children>
+	
+	
+	<!-- WIDGETGROUP: Strobes Full Rack -->	
+	<WidgetGroup>
+	<ObjectName>Strobes</ObjectName>
+	<MinimumSize>1,-1</MinimumSize><!-- -1f == Hides the row, if no module is visible -->
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>horizontal</Layout>
+	<Children>	
+	
+	<Template src="skin:templates/strobes/strobes_module.xml"><SetVariable name="audiochannel">1</SetVariable></Template>	
+	<Template src="skin:templates/strobes/strobes_module.xml"><SetVariable name="audiochannel">2</SetVariable></Template>	
+	<Template src="skin:templates/strobes/strobes_module.xml"><SetVariable name="audiochannel">3</SetVariable></Template>	
+	<Template src="skin:templates/strobes/strobes_module.xml"><SetVariable name="audiochannel">4</SetVariable></Template>
+	
+	</Children>	
+	<!-- Maximize/Minimize -->
+	<Connection>
+	<ConfigKey>[StrobesMaximize],show</ConfigKey>
+	<BindProperty>visible</BindProperty>
+	</Connection>
+	</WidgetGroup>	
+	
+	
+	</Children>	
+	<!-- Show/Hide -->
+	<Connection>
+	<ConfigKey>[StrobesRack],show</ConfigKey>
+	<BindProperty>visible</BindProperty>
+	</Connection>
+	</WidgetGroup>
+	
+</Template>

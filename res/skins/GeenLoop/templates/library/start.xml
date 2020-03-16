@@ -1,0 +1,225 @@
+<!DOCTYPE template>
+
+<Template>
+
+	<WidgetGroup>
+    <ObjectName>LibraryArea</ObjectName>	
+	<MinimumSize>1,65</MinimumSize>
+	<SizePolicy>me,me</SizePolicy>
+	<Layout>vertical</Layout> 
+	<Children>
+	
+		
+
+
+
+
+		
+		<!-- Button: Show/Hide Preview Deck 
+		<WidgetGroup>
+		<Tooltip>Preview Deck</Tooltip>
+		<Size>30,30</Size>
+		<SizePolicy>f,f</SizePolicy>
+		<Layout>horizontal</Layout>		
+		<Children>		
+		<PushButton>
+		<NumberStates>2</NumberStates>
+		<State>
+		<Number>0</Number>
+		<Pressed>skin:graphics/btn_view.svg</Pressed>
+		<Unpressed>skin:graphics/btn_view.svg</Unpressed>
+		</State>
+		<State>
+		<Number>1</Number>
+		<Pressed>skin:graphics/btn_view_pressed.svg</Pressed>
+		<Unpressed>skin:graphics/btn_view_pressed.svg</Unpressed>
+		</State>		
+		<Connection>
+		<ConfigKey>[PreviewD1],show</ConfigKey>
+		</Connection>	
+		</PushButton>
+		</Children>
+		</WidgetGroup>-->	
+	
+		<!-- Button: Show/Hide Search Box
+		<WidgetGroup>
+		<Tooltip>Search Box</Tooltip>
+		<Size>30,30</Size>
+		<SizePolicy>f,f</SizePolicy>
+		<Layout>horizontal</Layout>		
+		<Children>		
+		<PushButton>
+		<NumberStates>2</NumberStates>
+		<State>
+		<Number>0</Number>
+		<Pressed>skin:graphics/btn_view.svg</Pressed>
+		<Unpressed>skin:graphics/btn_view.svg</Unpressed>
+		</State>
+		<State>
+		<Number>1</Number>
+		<Pressed>skin:graphics/btn_view_pressed.svg</Pressed>
+		<Unpressed>skin:graphics/btn_view_pressed.svg</Unpressed>
+		</State>		
+		<Connection>
+		<ConfigKey>[SearchTextBox1],show</ConfigKey>
+		</Connection>	
+		</PushButton>
+		</Children>
+		</WidgetGroup>
+		-->	
+		
+
+		<!-- Button: Show/Hide Hifi (Expands the library) 
+		<WidgetGroup>
+		<Tooltip>Expand Library</Tooltip><
+		<Size>100,30</Size>
+		<SizePolicy>f,f</SizePolicy>
+		<Layout>horizontal</Layout>		
+		<Children>		
+		<PushButton>
+		<NumberStates>2</NumberStates>
+		<State>
+		<Number>0</Number>
+		<Pressed>skin:graphics/btn_library_less.svg</Pressed>
+		<Unpressed>skin:graphics/btn_library_less.svg</Unpressed>
+		</State>
+		<State>
+		<Number>1</Number>
+		<Pressed>skin:graphics/btn_library_more.svg</Pressed>
+		<Unpressed>skin:graphics/btn_library_more.svg</Unpressed>
+		</State>		
+		<Connection>
+		<ConfigKey>[Hifi],show</ConfigKey>
+
+		</Connection>	
+		</PushButton>
+		</Children>
+		</WidgetGroup>	
+-->	
+		<!--
+		<WidgetGroup> Spacer (To center Library Button)
+		<Size>18,30</Size>
+		<SizePolicy>f,f</SizePolicy>
+		<Layout>horizontal</Layout>		
+		<Children></Children>
+		</WidgetGroup>
+		-->		
+		
+		
+		
+		<!-- Library: Ends - settings buttons -->
+
+			
+
+		<WidgetGroup>
+		<ObjectName>Library</ObjectName>
+		<Pos>0,0</Pos>
+		<Size>me,me</Size>
+		<SizePolicy>me,me</SizePolicy>
+		<Layout>horizontal</Layout>		
+		<Children>
+
+	
+		<Splitter>
+		<ObjectName>SplitterVertical</ObjectName>
+		<Orientation>horizontal</Orientation>
+				<SplitSizes>5,5</SplitSizes>  <!-- eg: 1 == 10%, 9 == 90% -->
+  
+        <MinimumSize>0,0</MinimumSize>
+		<SizePolicy>me,me</SizePolicy>	
+		<Children>
+		<WidgetGroup>	
+		<Layout>vertical</Layout>
+		<Children>		
+
+		
+			
+		
+
+		<WidgetGroup>
+		<ObjectName>SearchBoxArea</ObjectName>
+		<Size>120me,28f</Size>
+		<Layout>vertical</Layout>
+		<Children>
+		<SearchBox> <!-- THE Search Box !!! --> </SearchBox>
+		</Children>
+		<Connection>
+		<ConfigKey>[SearchTextBox1],show</ConfigKey>
+		<BindProperty>visible</BindProperty>
+		</Connection>
+		</WidgetGroup>		 
+
+		<WidgetGroup>
+		<ObjectName>LibraryTree</ObjectName>
+		<Size>240me,50me</Size>
+		<Layout>horizontal</Layout>
+		<Children>
+		<LibrarySidebar> <!-- THE Directories Tree !!! --> </LibrarySidebar>	
+		</Children>
+		</WidgetGroup>	
+		
+		<!-- QSplitter (Between Sidebar and CoverArt)
+        <Splitter>
+        <ObjectName>SplitterHorizontal</ObjectName>
+        <Orientation>vertical</Orientation>        
+        <MinimumSize>100,-1</MinimumSize>
+		<SizePolicy>me,me</SizePolicy>
+		<SplitSizes>9,1</SplitSizes> 
+        <Children>
+		
+			
+
+		<WidgetGroup>
+		<ObjectName>LibraryCoverArtFrame</ObjectName>
+		<Size>100me,-1me</Size>
+		<Layout>vertical</Layout>
+		<Children>		
+		<CoverArt>
+		<ObjectName>LibraryCoverArt</ObjectName>
+		<MinimumSize>50,-1</MinimumSize>
+		<SizePolicy>me,me</SizePolicy>  
+		
+		<Connection>
+		<ConfigKey>[Library],show_coverart</ConfigKey>
+		<BindProperty>visible</BindProperty>
+		</Connection>
+		
+		</CoverArt>
+		</Children>
+		</WidgetGroup>		
+		
+		</Children>
+		</Splitter>
+ -->
+		</Children>
+<Connection>
+		<ConfigKey>[leftLib],show</ConfigKey>
+	<BindProperty>visible</BindProperty> 
+	</Connection>
+
+				</WidgetGroup>
+		
+
+
+
+
+
+							<WidgetGroup>
+							<Layout>vertical</Layout>
+							<Children>
+							<Library> <!-- THE Library Table !!! (QGroupBox{}) --> </Library>
+							</Children>
+							</WidgetGroup>
+		
+		</Children>
+		</Splitter>
+		
+	
+		</Children>
+	</WidgetGroup>
+	
+
+	</Children>
+	</WidgetGroup>
+	
+</Template>

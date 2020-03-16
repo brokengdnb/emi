@@ -1,0 +1,192 @@
+<!DOCTYPE template>
+
+<Template>
+
+	<WidgetGroup>
+	<ObjectName>ToolBar2AD</ObjectName>
+	<Pos>0,1</Pos>
+	<MinimumSize>1,1</MinimumSize>
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>vertical</Layout>
+	<Children>
+	</Children>
+	</WidgetGroup>
+
+	<WidgetGroup>
+	<ObjectName>ToolBar2</ObjectName>
+	<Pos>0,0</Pos>
+	<MinimumSize>1,51</MinimumSize>
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>vertical</Layout>
+	<Children>
+	
+	<!-- WIDGETGROUP: Tool Bar 2 -->	
+	<WidgetGroup>
+	<MinimumSize>0,50</MinimumSize>
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>horizontal</Layout>
+	<Children>
+
+
+
+
+		
+
+		<!--
+		**********************************************
+		Logo MIXXX:
+		**********************************************
+		-->	
+
+		<WidgetGroup>
+		<Tooltip>Dark Metal Skin</Tooltip><!--  Tooltip -->
+		<ObjectName>Logos</ObjectName>
+		<MinimumSize>110,50</MinimumSize>
+		<SizePolicy>me,f</SizePolicy>
+		<!-- Must be set here. If set in "styles.qss" file, colors will not be processed -->
+
+		<Children>
+		</Children>
+		</WidgetGroup>
+			
+	
+
+
+
+		<!--
+		**********************************************
+		Broadcast:
+		**********************************************
+		-->
+
+
+		<WidgetGroup><!-- Design -->
+			<ObjectName>VerticalLine</ObjectName>
+			<MinimumSize>3,50</MinimumSize>
+			<SizePolicy>f,me</SizePolicy>
+			<Children></Children>
+		</WidgetGroup>
+
+
+
+
+
+		<WidgetGroup>
+		<Tooltip>Time</Tooltip><!--  Tooltip -->	
+		<ObjectName>Clock</ObjectName>
+		<MinimumSize>80,50</MinimumSize>
+		<SizePolicy>f,f</SizePolicy>
+		<Children>			
+		<Time>
+		<ObjectName>ClockTexts</ObjectName>
+		<Pos>13,25</Pos>
+		<CustomFormat>hh:mm:ss</CustomFormat>
+		<ShowSeconds>true</ShowSeconds>
+		<ClockFormat>24</ClockFormat>
+		</Time>					
+		</Children>			
+		</WidgetGroup>
+
+
+
+
+
+	
+
+
+	<WidgetGroup>
+		<Tooltip>Auto DJ</Tooltip><!--  Tooltip -->	
+		<ObjectName>AutoDJ</ObjectName>
+		<MinimumSize>30,50</MinimumSize>
+		<SizePolicy>f,f</SizePolicy>
+		<Children>			
+		<PushButton>				
+		<NumberStates>2</NumberStates>
+		<State>
+		<Number>0</Number>
+		<Pressed>skin:graphics/btn_autodj_pressed.svg</Pressed>
+		<Unpressed>skin:graphics/btn_autodj.svg</Unpressed>
+		</State>
+		<State>
+		<Number>1</Number>
+		<Pressed>skin:graphics/btn_autodj_pressed.svg</Pressed>
+		<Unpressed>skin:graphics/btn_autodj_pressed.svg</Unpressed>
+		</State>
+		<Connection>
+		<ConfigKey>[AutoDJ],enabled</ConfigKey>
+		</Connection>
+		</PushButton>
+		</Children>			
+		</WidgetGroup>		
+
+
+
+
+
+
+
+
+		<WidgetGroup>
+		<Tooltip>Broadcast</Tooltip><!--  Tooltip -->		
+		<ObjectName>Broadcast</ObjectName>
+		<MinimumSize>100,50</MinimumSize>
+		<SizePolicy>f,f</SizePolicy>
+		<Children>			
+		<PushButton>
+		<Pos>0,0</Pos>
+		<NumberStates>4</NumberStates>
+		<State>
+		<Number>0</Number>
+		<Pressed>skin:graphics/btn_broadcast_unconnected.svg</Pressed>
+		<Unpressed>skin:graphics/btn_broadcast_unconnected.svg</Unpressed>
+		</State>
+		<State>
+		<Number>1</Number>
+		<Pressed>skin:graphics/btn_broadcast_connecting.svg</Pressed>
+		<Unpressed>skin:graphics/btn_broadcast_connecting.svg</Unpressed>
+		</State>
+		<State>
+		<Number>2</Number>
+		<Pressed>skin:graphics/btn_broadcast_connected.svg</Pressed>
+		<Unpressed>skin:graphics/btn_broadcast_connected.svg</Unpressed>
+		</State>
+		<State>
+		<Number>3</Number>
+		<Pressed>skin:graphics/btn_broadcast_failure.svg</Pressed>
+		<Unpressed>skin:graphics/btn_broadcast_failure.svg</Unpressed>
+		</State>			
+		<Connection>
+		<ConfigKey>[Shoutcast],enabled</ConfigKey>
+		<ButtonState>LeftButton</ButtonState>
+		</Connection>
+		<Connection>
+		<ConfigKey>[Shoutcast],status</ConfigKey>
+		</Connection>
+		</PushButton>
+		</Children>			
+		</WidgetGroup>
+		
+
+		
+		
+		
+		
+<WidgetGroup><!-- Design -->
+		<ObjectName>VerticalLine</ObjectName>
+		<MinimumSize>3,50</MinimumSize>
+		<SizePolicy>f,me</SizePolicy>
+		<Children></Children>
+		</WidgetGroup>
+
+
+
+	
+	</Children>
+	</WidgetGroup>
+	
+
+	</Children>
+	</WidgetGroup>
+
+
+</Template>

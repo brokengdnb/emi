@@ -1,0 +1,265 @@
+<!DOCTYPE template>
+
+<Template>
+
+<WidgetGroup>
+		<Tooltip>Deck <Variable name="audiochannel"/></Tooltip><!-- Tooltip -->
+		<ObjectName>Deck<Variable name="position"/></ObjectName>
+			<MinimumSize>1,1</MinimumSize>
+			<SizePolicy>me,f</SizePolicy>
+			<Layout>vertical</Layout>
+			<Children>		
+
+				
+			
+			<!--
+			********************************************************************
+			ROW: Art + Waves + Spinning:
+			********************************************************************
+			-->
+		
+			<WidgetGroup>
+				<Pos>0,50</Pos>
+				<MinimumSize>10,130</MinimumSize>
+				<SizePolicy>me,f</SizePolicy>
+				<Layout>horizontal</Layout>
+				<Children>
+								
+					<!--
+					**********************************************
+					Display BIG cover art:
+					**********************************************
+					-->					
+					
+				
+					
+					
+					<WidgetGroup>
+					<ObjectName>BothWaves</ObjectName>
+					<MinimumSize>-1,130</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Layout>vertical</Layout>				
+					<Children>					
+
+				
+		
+							
+
+
+
+<!--
+			********************************************************************
+			ROW: Text - Track Artist + Beat Buttons:
+			********************************************************************
+			
+
+					
+				
+
+		
+
+<NumberPos>
+					<ObjectName>TrackPlayPositionDeck<Variable name="position"/></ObjectName>
+					<Channel><Variable name="audiochannel"/></Channel>
+					<Pos>0,0</Pos>
+					<MinimumSize>10,23</MinimumSize>
+					<SizePolicy>me,f</SizePolicy>
+					<Alignment>right</Alignment>
+					<NumberOfDigits>2</NumberOfDigits>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],playposition</ConfigKey>
+					</Connection>
+					</NumberPos>
+							
+			
+					
+
+				-->
+
+
+			
+			
+					<!--
+					********************************************************************
+					(2 Waves) 1st - Big wave display:
+					********************************************************************
+					-->	
+					
+					<Visual>						
+					<Channel><Variable name="audiochannel"/></Channel>
+					<MinimumSize>1,66</MinimumSize>	
+					<SizePolicy>me,me</SizePolicy>
+					<BgColor></BgColor>
+					<BgPixmap>skin:graphics/wave_background_medium.svg</BgPixmap>					
+					<SignalHighColor>#5f4d75</SignalHighColor><!-- highs - clear -->
+					<SignalMidColor>#230d44</SignalMidColor>  <!-- mediums - dark -->
+					<SignalLowColor>#180831</SignalLowColor>  <!-- lows - darker -->
+					<SignalColor>#7c708f</SignalColor>        <!-- "main wave" -->
+					<PlayPosColor>#99ece7f5</PlayPosColor>    <!-- color format: #AARRGGBB -->
+					<PlayedOverlayColor>#99684e8c</PlayedOverlayColor> <!-- played wave - color format: #AARRGGBB -->
+					<BeatColor>#d8cbec</BeatColor>
+					<EndOfTrackColor>#6e4aaa</EndOfTrackColor>					
+					<AxesColor>#99580078</AxesColor> <!-- color format: #AARRGGBB -->
+					<DefaultMark> <!-- Applies to numbers 1 to 8 -->
+					<Align>top</Align>
+					<Color>#dbb7ff</Color>
+					<TextColor>#ffffff</TextColor>
+					<Text> %1 </Text>
+					</DefaultMark>
+					<MarkRange> <!-- ... -->
+					<StartControl>loop_start_position</StartControl>
+					<EndControl>loop_end_position</EndControl>
+					<EnabledControl>loop_enabled</EnabledControl>
+					<Color>#dbb7ff</Color>
+					<DisabledColor>#ffffff</DisabledColor>
+					</MarkRange>
+					<Mark>
+						<Control>loop_start_position</Control>
+						<Pixmap></Pixmap>
+						<Text> START </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>
+					<Mark>
+						<Control>loop_end_position</Control>
+						<Pixmap></Pixmap>
+						<Text> END </Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>	
+					<Mark> <!-- Cue -->
+						<Control>cue_point</Control>
+						<Pixmap></Pixmap>
+						<Text></Text>
+						<Align>top</Align>
+						<Color>#cb97fb</Color>
+						<TextColor>#ffffff</TextColor>
+					</Mark>	
+					</Visual>		
+
+
+<!--
+			********************************************************************
+			ROW: Text - Track Artist + Beat Buttons:
+			********************************************************************
+			
+
+			<WidgetGroup>
+				<ObjectName>TextLineN2Deck<Variable name="position"/></ObjectName>
+
+				<Pos>0,26</Pos>
+				<MinimumSize>10,23</MinimumSize>
+
+				<SizePolicy>i,max</SizePolicy> 
+				<Layout>horizontal</Layout>
+				<Children>  
+				
+				
+
+					
+				
+			
+		<NumberBpm>
+					<ObjectName>SmallBPM</ObjectName>
+						<Pos>0,0</Pos>
+
+					<SizePolicy>me,f</SizePolicy>
+					<Alignment>right</Alignment>
+					<NumberOfDigits>2</NumberOfDigits>
+					<Channel><Variable name="audiochannel"/></Channel>
+					<Connection>
+					<ConfigKey>[Channel<Variable name="audiochannel"/>],visual_bpm</ConfigKey>
+					</Connection>
+					</NumberBpm>
+
+					
+
+
+				</Children>
+			</WidgetGroup>
+			 
+-->
+					
+					
+					</Children>
+					</WidgetGroup>
+
+					<!--
+					********************************************************************
+					Spinnyng disc display: <PathBackground>skin:graphics/background_spinny.svg</PathBackground>
+					********************************************************************
+					
+					
+					<WidgetGroup>
+						<Pos>0,0</Pos>
+						<MinimumSize>118,118</MinimumSize>
+						<SizePolicy>f,f</SizePolicy>
+						<Layout>horizontal</Layout>
+						<Children>
+							<Spinny>								
+							<Channel><Variable name="audiochannel"/></Channel>								
+							
+							<PathForeground>skin:graphics/gramofonova_deska.png</PathForeground>
+							<PathMask></PathMask>
+							<ShowCover>false</ShowCover>
+							</Spinny>
+						</Children>
+						<Connection>
+							<ConfigKey>[Spinny<Variable name="audiochannel"/>],show_spinny</ConfigKey>
+							<BindProperty>visible</BindProperty>
+						</Connection>
+					</WidgetGroup>
+
+-->	
+
+<!-- <WidgetGroup>
+						<Pos>0,0</Pos>
+						<MinimumSize>150,150</MinimumSize>
+						<SizePolicy>f,f</SizePolicy>
+						<Layout>horizontal</Layout>
+						<Children>
+							<Spinny>								
+							<Channel><Variable name="audiochannel"/></Channel>								
+							<PathBackground>skin:graphics/background_spinny.png</PathBackground>
+							<PathForeground>skin:graphics/spinny_<Variable name="spinnytype"/>.svg</PathForeground>
+							<PathGhost>skin:graphics/spinny_<Variable name="spinnytype"/>.svg</PathGhost>
+							<PathMask></PathMask>
+							<ShowCover>false</ShowCover>
+							</Spinny>
+						</Children>
+						<Connection>
+							<ConfigKey>[Spinny<Variable name="audiochannel"/>],show_spinny</ConfigKey>
+							<BindProperty>visible</BindProperty>
+						</Connection>
+					</WidgetGroup>
+					
+			 -->		
+				</Children>
+			</WidgetGroup>
+			
+			
+		
+		<!--
+		*************************************************************************
+		*************************************************************************
+		STARTS - 2 ROWS with buttons: (But ONLY one will be visible at a time)
+		*************************************************************************
+		*************************************************************************
+		-->		
+		
+	<WidgetGroup> <!-- Pusher: Pushes everything in this deck to up -->				
+	<MinimumSize>0,0</MinimumSize>	
+	<SizePolicy>f,me</SizePolicy>
+	<Children><!-- Pusher --></Children>
+	</WidgetGroup>	
+	
+	</Children>
+	<Connection><!-- Show/Hide the other deck, so this one will be expanded -->
+	<ConfigKey>[Deck<Variable name="audiochannel"/>],show</ConfigKey>
+	<BindProperty>visible</BindProperty>
+	</Connection>
+	</WidgetGroup>
+	
+</Template>

@@ -1,0 +1,37 @@
+<!DOCTYPE template>
+
+<Template>	
+
+	<WidgetGroup>
+	<ObjectName>LongWavesRack</ObjectName>
+	<MinimumSize>0,0</MinimumSize><!-- 0 == Forces to redraw the full row height, after we show/hide a module -->
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>vertical</Layout>
+	<Children>	
+
+
+	<WidgetGroup>
+	<MinimumSize>0,0</MinimumSize><!-- 0 == Forces to redraw the full row height, after we show/hide a module -->
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>vertical</Layout>
+	<Children>
+	
+	<!-- WIDGETGROUP: Long Waves Full Rack  -->
+	<Template src="skin:templates/longwaves/longwaves_module.xml"><SetVariable name="audiochannel">1</SetVariable></Template>
+	<Template src="skin:templates/longwaves/longwaves_module.xml"><SetVariable name="audiochannel">2</SetVariable></Template>
+	<Template src="skin:templates/longwaves/longwaves_module.xml"><SetVariable name="audiochannel">3</SetVariable></Template>
+	<Template src="skin:templates/longwaves/longwaves_module.xml"><SetVariable name="audiochannel">4</SetVariable></Template>
+
+	</Children>	
+	<!-- Maximize/Minimize -->
+	<Connection>
+	<ConfigKey>[LongWavesMaximize],show</ConfigKey>
+	<BindProperty>visible</BindProperty>
+	</Connection>
+	</WidgetGroup>		
+	
+	</Children>	
+	
+	</WidgetGroup>	
+
+</Template>

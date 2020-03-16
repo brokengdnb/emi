@@ -1,0 +1,43 @@
+<!DOCTYPE template>
+
+<Template>	
+
+	<!-- WIDGETGROUP: -->	
+	<WidgetGroup>
+	<ObjectName>BigDecksRack</ObjectName>
+	<MinimumSize>0,0</MinimumSize><!-- 0 == Forces to redraw the full row height, after we show/hide a module -->
+<MaximumSize>-1,520</MaximumSize>
+	<SizePolicy>me,f</SizePolicy>
+	<Layout>vertical</Layout>
+	<Children>	
+	
+	
+
+	<Template src="skin:templates/bigdecks/deck_left.xml">
+			<SetVariable name="audiochannel">1</SetVariable>
+			<SetVariable name="position">Left</SetVariable>
+			</Template>
+
+	<Template src="skin:templates/bigdecks/deck_left.xml">
+			<SetVariable name="audiochannel">2</SetVariable>
+			<SetVariable name="position">Left</SetVariable>
+			</Template>
+
+	<Template src="skin:templates/bigdecks/deck_left.xml">
+			<SetVariable name="audiochannel">3</SetVariable>
+			<SetVariable name="position">Left</SetVariable>
+			</Template>
+
+	<Template src="skin:templates/bigdecks/deck_left.xml">
+			<SetVariable name="audiochannel">4</SetVariable>
+			<SetVariable name="position">Left</SetVariable>
+			</Template>
+
+	</Children>	
+	<Connection>
+	<ConfigKey>[BigDecksRack],show</ConfigKey>
+	<BindProperty>visible</BindProperty>
+	</Connection>
+	</WidgetGroup>
+	
+</Template>
