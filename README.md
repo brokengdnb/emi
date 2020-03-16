@@ -1,35 +1,40 @@
 # Mixxx
 
-Based on [Mixxx], which is Free DJ software that gives you everything you need to perform live DJ mixes. Works on GNU/Linux, Windows, and macOS.
-
+Based on [Mixxx](https://mixxx.org "Mixxx"), which is Free DJ software that gives you everything you need to perform live DJ mixes. Works on GNU/Linux, Windows, and macOS.
 
 
 ## Compiling
 
-* [![Build Status](https://travis-ci.org/mixxxdj/mixxx.svg)](https://travis-ci.org/mixxxdj/mixxx) macOS
-* [![Build status](https://img.shields.io/jenkins/s/https/builds.mixxx.org/job/master-release.svg)](https://builds.mixxx.org/job/master-release) Jenkins
-*  [![Build status](https://ci.appveyor.com/api/projects/status/j460rficblcaopwx?svg=true)](https://ci.appveyor.com/project/mixxxdj/mixxx) Ubuntu / Windows
+##### on platform:
 
-First, you must install all of Mixxx's dependencies. Then run:
+- [![Build Status](https://travis-ci.org/mixxxdj/mixxx.svg)](https://mixxx.org/wiki/doku.php/compiling_on_os_x) [macOS](https://mixxx.org/wiki/doku.php/compiling_on_os_x "macOS")
+- [![Build Status](https://travis-ci.org/mixxxdj/mixxx.svg)](https://mixxx.org/wiki/doku.php/compiling_on_linux) [Linux](https://mixxx.org/wiki/doku.php/compiling_on_linux"[Linux]")
+- [![Build Status](https://travis-ci.org/mixxxdj/mixxx.svg)](https://mixxx.org/wiki/doku.php/compiling_on_windows) [Windows](https://mixxx.org/wiki/doku.php/compiling_on_windows "Windows")
 
-    scons
+First, you must install all of Mixxx's dependencies by your system and then run:
 
-#### Platform
+```shell
+scons
+```
 
-- [macOS]
-- [Linux]
-- [Windows]
 
 ## Documentation
 
-- [FAQ][FAQ]
-- [Wiki][wiki]
-- [Skins]
-- [Manual][manual]
-- [Hardware Compatibility]
+- [FAQ](http://https://mixxx.org/wiki/doku.php/faq "FAQ")
+- [Wiki](https://www.mixxx.org/wiki/doku.phphttp:// "Wiki")
+- [Skins](https://mixxx.org/wiki/doku.php/creating_skins "Skins")
+- [Manual](https://github.com/brokengdnb/emi/blob/master/Mixxx-Manual.pdf "Manual")
+- [Controls](htthttps://mixxx.org/wiki/doku.php/mixxxcontrolsp:// "Controls")
+- [Scripting](https://mixxx.org/wiki/doku.php/midi_scripting "Scripting")
+- [HW Compatibility](https://mixxx.org/wiki/doku.php/hardware_compatibility "HW Compatibility")
 
+## Screens
 
+[![preview1](https://github.com/brokengdnb/emi/blob/master/01.png?raw=true "preview1")](https://github.com/brokengdnb/emi "preview1")
 
+[![preview2](https://github.com/brokengdnb/emi/blob/master/03.png?raw=true "preview2")](https://github.com/brokengdnb/emi "preview2")
+
+[![preview3](https://github.com/brokengdnb/emi/blob/master/05.png?raw=true "preview3")](https://github.com/brokengdnb/emi "preview3")
 
 ## License
 
