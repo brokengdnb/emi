@@ -24,11 +24,13 @@ scons
 - [Wiki](https://www.mixxx.org/wiki/doku.phphttp:// "Wiki")
 - [Skins](https://mixxx.org/wiki/doku.php/creating_skins "Skins")
 - [Manual](https://github.com/brokengdnb/emi/blob/master/Mixxx-Manual.pdf "Manual")
-- [Controls](htthttps://mixxx.org/wiki/doku.php/mixxxcontrolsp:// "Controls")
+- [Controls](https://mixxx.org/wiki/doku.php/mixxxcontrols "Controls")
 - [Scripting](https://mixxx.org/wiki/doku.php/midi_scripting "Scripting")
 - [HW Compatibility](https://mixxx.org/wiki/doku.php/hardware_compatibility "HW Compatibility")
 
-## Screens
+## MIDI Controller & Screens
+
+[![preview](https://github.com/brokengdnb/emi/blob/master/02.png?raw=true "preview")](https://github.com/brokengdnb/emi "preview")
 
 [![preview1](https://github.com/brokengdnb/emi/blob/master/01.png?raw=true "preview1")](https://github.com/brokengdnb/emi "preview1")
 
