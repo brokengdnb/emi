@@ -40,7 +40,7 @@ scons
 
 ## Future plans
 
-Get some single-board mini PC with LCD and create complete custom and standalone player powered by 5V power bank.
+Get some single-board mini PC with LCD, create complete custom, standalone player powered by 5V power bank and build it directly to the controller. Oh yea and I need 3D printer, of course...
 
 [![board](https://github.com/brokengdnb/emi/blob/master/board.jpg?raw=true "board")](https://github.com/brokengdnb/emi/blob/master/board.jpg?raw=true "board")
 
